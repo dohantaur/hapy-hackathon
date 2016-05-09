@@ -1,0 +1,4 @@
+class GreenHouse < ActiveRecord::Base
+
+  belongs_to :user
+end
