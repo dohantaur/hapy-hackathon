@@ -4,6 +4,7 @@ ruby '2.3.0'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'doorkeeper'
+gem 'doorkeeper-jwt'
 gem 'grape'
 gem 'grape-entity'
 gem 'hashie-forbidden_attributes'

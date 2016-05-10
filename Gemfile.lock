@@ -61,6 +61,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     doorkeeper (3.1.0)
       railties (>= 3.2)
+    doorkeeper-jwt (0.1.6)
+      jwt (~> 1.5.2, >= 1.5.2)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
@@ -97,6 +99,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    jwt (1.5.4)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -198,6 +201,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   doorkeeper
+  doorkeeper-jwt
   dotenv-rails
   grape
   grape-entity

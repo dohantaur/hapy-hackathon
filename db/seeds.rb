@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 u = User.new
-u.email = 'aurelien.dohant@gmail.com'
+u.email = 'dohant.aurelien@gmail.com'
 u.password = 'password'
 green_houses = (1..10).map do |index|
   green_house = GreenHouse.new

@@ -11,7 +11,7 @@ Doorkeeper.configure do
   end
 
   resource_owner_from_credentials do |routes|
-    User.find_by(email: params[:email]).try(:authenticate, params[:password])
+    User.find_by(email: params[:username]).try(:authenticate, params[:password])
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
@@ -35,14 +35,14 @@ Doorkeeper.configure do
 
   # Use a custom class for generating the access token.
   # https://github.com/doorkeeper-gem/doorkeeper#custom-access-token-generator
-  # access_token_generator "::Doorkeeper::JWT"
+  access_token_generator '::Doorkeeper::JWT'
 
   # Reuse access token for the same resource owner within an application (disabled by default)
   # Rationale: https://github.com/doorkeeper-gem/doorkeeper/issues/383
   # reuse_access_token
 
   # Issue access tokens with refresh token (disabled by default)
-  # use_refresh_token
+  use_refresh_token
 
   # Provide support for an owner to be assigned to each registered application (disabled by default)
   # Optional parameter :confirmation => true (default false) if you want to enforce ownership of
@@ -97,7 +97,8 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.2
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
-  # grant_flows %w(authorization_code client_credentials)
+  grant_flows %w(password)
+
 
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.
@@ -108,4 +109,29 @@ Doorkeeper.configure do
 
   # WWW-Authenticate Realm (default "Doorkeeper").
   # realm "Doorkeeper"
+end
+
+Doorkeeper::JWT.configure do
+  # Set the payload for the JWT token. This should contain unique information
+  # about the user.
+  # Defaults to a randomly generated token in a hash
+  # { token: "RANDOM-TOKEN" }
+  token_payload do |opts|
+    {
+        user_id: opts[:resource_owner_id],
+        uuid: SecureRandom.uuid
+    }
+  end
+
+  # Use the application secret specified in the Access Grant token
+  # Defaults to false
+  # If you specify `use_application_secret true`, both secret_key and secret_key_path will be ignored
+  use_application_secret false
+
+  secret_key ENV['SECRET_KEY_BASE'] || 'secret'
+
+  # Specify encryption type. Supports any algorithim in
+  # https://github.com/progrium/ruby-jwt
+  # defaults to nil
+  encryption_method :hs512
 end

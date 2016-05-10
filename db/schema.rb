@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509145059) do
+ActiveRecord::Schema.define(version: 20160510094837) do
 
   create_table "green_houses", force: :cascade do |t|
     t.string   "name"
