@@ -5,7 +5,7 @@ module Hapy::API::V1::GreenHouses
       doorkeeper_authorize!
     end
 
-    
+
     get do
       present :data, GreenHouse.all, with: Hapy::Entities::GreenHouseEntity
     end
