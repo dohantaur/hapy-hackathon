@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510094837) do
+ActiveRecord::Schema.define(version: 20160511132141) do
 
   create_table "green_houses", force: :cascade do |t|
     t.string   "name"
+    t.string   "soil"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,6 +62,16 @@ ActiveRecord::Schema.define(version: 20160510094837) do
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true
+
+  create_table "plants", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "plantationDate"
+    t.integer  "green_houses_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "plants", ["green_houses_id"], name: "index_plants_on_green_houses_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest"
