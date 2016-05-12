@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511132141) do
+ActiveRecord::Schema.define(version: 20160512073027) do
 
   create_table "green_houses", force: :cascade do |t|
     t.string   "name"
     t.string   "soil"
+    t.integer  "actual_program"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
+  add_index "green_houses", ["actual_program"], name: "index_green_houses_on_actual_program"
   add_index "green_houses", ["user_id"], name: "index_green_houses_on_user_id"
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -63,15 +65,42 @@ ActiveRecord::Schema.define(version: 20160511132141) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true
 
+  create_table "plant_templates", force: :cascade do |t|
+    t.integer  "plant_type_templates_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "plant_type_templates", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "plants", force: :cascade do |t|
     t.string   "name"
     t.datetime "plantationDate"
     t.integer  "green_houses_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "plant_templates_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "plants", ["green_houses_id"], name: "index_plants_on_green_houses_id"
+
+  create_table "program_templates", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.integer  "program_templates_id"
+    t.integer  "green_houses_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "programs", ["green_houses_id"], name: "index_programs_on_green_houses_id"
+  add_index "programs", ["program_templates_id"], name: "index_programs_on_program_templates_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest"
