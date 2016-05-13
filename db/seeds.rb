@@ -11,6 +11,14 @@ u.password = 'password'
 green_houses = (1..10).map do |index|
   green_house = GreenHouse.new
   green_house.name = "green house #{index}"
+  green_house.description = "green house desc. #{index}"
+  plants = (1..3).map do |index|
+    plant = Plant.new
+    plant.name = "plant #{index}"
+    plant.description = "plant desc. #{index}"
+    plant
+  end
+  green_house.plants << plants
   green_house
 end
 u.green_houses << green_houses
