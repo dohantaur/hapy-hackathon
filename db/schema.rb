@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 20160512073027) do
 
   create_table "green_houses", force: :cascade do |t|
     t.string   "name"
+    t.string   "description"
     t.string   "soil"
     t.integer  "actual_program"
+    t.string   "picture_url"
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -78,14 +80,16 @@ ActiveRecord::Schema.define(version: 20160512073027) do
 
   create_table "plants", force: :cascade do |t|
     t.string   "name"
+    t.string   "description"
     t.datetime "plantationDate"
-    t.integer  "green_houses_id"
-    t.integer  "plant_templates_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "picture_url"
+    t.integer  "green_house_id"
+    t.integer  "plant_template_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "plants", ["green_houses_id"], name: "index_plants_on_green_houses_id"
+  add_index "plants", ["green_house_id"], name: "index_plants_on_green_house_id"
 
   create_table "program_templates", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -105,6 +109,9 @@ ActiveRecord::Schema.define(version: 20160512073027) do
   create_table "users", force: :cascade do |t|
     t.string   "password_digest"
     t.string   "email"
+    t.string   "picture_url"
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
