@@ -3,5 +3,6 @@ module Hapy::Entities
     expose :id
     expose :name
     expose :soil
+    expose :description
   end
 end
