@@ -7,7 +7,7 @@ module Hapy::API::V1::GreenHouses
 
 
     get do
-      present :data, GreenHouse.all, with: Hapy::Entities::GreenHouseEntity
+      present :data, current_user.green_houses, with: Hapy::Entities::GreenHouseEntity
     end
 
     route_param :id do

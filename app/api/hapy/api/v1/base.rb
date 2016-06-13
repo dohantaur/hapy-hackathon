@@ -30,6 +30,13 @@ module Hapy::API::V1
       mount Hapy::API::V1::GreenHouses::Base
     end
 
+    resource :program_templates do
+      mount Hapy::API::V1::ProgramTemplates::Base
+    end
+
+    resource :plant_type_templates do
+      mount Hapy::API::V1::PlantTypeTemplates::Base
+    end
   end
 
 end

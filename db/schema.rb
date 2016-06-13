@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512073027) do
+ActiveRecord::Schema.define(version: 20160614132141) do
 
   create_table "green_houses", force: :cascade do |t|
     t.string   "name"
@@ -68,14 +68,21 @@ ActiveRecord::Schema.define(version: 20160512073027) do
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true
 
   create_table "plant_templates", force: :cascade do |t|
-    t.integer  "plant_type_templates_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "name"
+    t.string   "soil"
+    t.string   "description"
+    t.integer  "plant_type_template_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "plant_type_templates", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "soil"
+    t.string   "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "program_template_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -92,11 +99,19 @@ ActiveRecord::Schema.define(version: 20160512073027) do
   add_index "plants", ["green_house_id"], name: "index_plants_on_green_house_id"
 
   create_table "program_templates", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "humidity"
+    t.integer  "temperature"
+    t.integer  "light"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "programs", force: :cascade do |t|
+    t.integer  "temperature"
+    t.integer  "humidity"
+    t.integer  "light"
     t.integer  "program_templates_id"
     t.integer  "green_houses_id"
     t.datetime "created_at",           null: false
