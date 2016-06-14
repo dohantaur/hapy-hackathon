@@ -42,6 +42,10 @@ module Hapy::API::V1
       mount Hapy::API::V1::Plants::Base
     end
 
+    resource :programs do
+      mount Hapy::API::V1::Programs::Base
+    end
+
   end
 
 end

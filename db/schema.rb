@@ -117,14 +117,14 @@ ActiveRecord::Schema.define(version: 20160614132141) do
     t.integer  "temperature"
     t.integer  "humidity"
     t.integer  "light"
-    t.integer  "program_templates_id"
-    t.integer  "green_houses_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "program_template_id"
+    t.integer  "green_house_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
-  add_index "programs", ["green_houses_id"], name: "index_programs_on_green_houses_id"
-  add_index "programs", ["program_templates_id"], name: "index_programs_on_program_templates_id"
+  add_index "programs", ["green_house_id"], name: "index_programs_on_green_house_id"
+  add_index "programs", ["program_template_id"], name: "index_programs_on_program_template_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest"

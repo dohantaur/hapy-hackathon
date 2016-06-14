@@ -1,10 +1,10 @@
 module Hapy::Entities
   class ProgramEntity < Grape::Entity
     expose :id
-    expose :name
     expose :humidity
     expose :temperature
     expose :light
-    expose :description
+    expose :created_at
+    expose :updated_at
   end
 end
