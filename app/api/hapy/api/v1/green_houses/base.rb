@@ -11,6 +11,7 @@ module Hapy::API::V1::GreenHouses
     end
 
     route_param :id do
+
       params do
         requires :id, type: Integer
       end

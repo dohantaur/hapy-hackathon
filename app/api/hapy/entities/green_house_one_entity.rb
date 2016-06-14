@@ -6,6 +6,7 @@ module Hapy::Entities
     expose :soil
     expose :description
     expose :picture_url
+    expose :actual_data
     expose :plants, using: Hapy::Entities::GreenHouseOnePlantEntity
   end
 end

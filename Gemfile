@@ -9,6 +9,7 @@ gem 'grape'
 gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 gem 'puma', '3.4.0'
+gem 'rest-client'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
