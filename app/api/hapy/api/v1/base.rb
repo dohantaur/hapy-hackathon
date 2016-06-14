@@ -37,6 +37,10 @@ module Hapy::API::V1
     resource :plant_type_templates do
       mount Hapy::API::V1::PlantTypeTemplates::Base
     end
+
+    resource :plants do
+      mount Hapy::API::V1::Plants::Base
+    end
   end
 
 end

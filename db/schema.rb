@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20160614132141) do
   create_table "plant_templates", force: :cascade do |t|
     t.string   "name"
     t.string   "soil"
+    t.integer  "temperature"
+    t.integer  "humidity"
     t.string   "description"
     t.integer  "plant_type_template_id"
     t.datetime "created_at",             null: false
@@ -88,7 +90,6 @@ ActiveRecord::Schema.define(version: 20160614132141) do
   create_table "plants", force: :cascade do |t|
     t.string   "name"
     t.datetime "plantationDate"
-    t.string   "soil"
     t.integer  "temperature"
     t.integer  "humidity"
     t.string   "description"

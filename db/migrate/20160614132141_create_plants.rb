@@ -3,7 +3,6 @@ class CreatePlants < ActiveRecord::Migration
     create_table :plants do |t|
       t.string :name
       t.datetime :plantationDate
-      t.string :soil
       t.integer :temperature
       t.integer :humidity
       t.string :description
