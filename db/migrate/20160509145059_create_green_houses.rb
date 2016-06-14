@@ -1,6 +1,7 @@
 class CreateGreenHouses < ActiveRecord::Migration
   def change
     create_table :green_houses do |t|
+      t.string :serial
       t.string :name
       t.string :description
       t.string :soil

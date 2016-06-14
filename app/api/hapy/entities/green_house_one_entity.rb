@@ -1,6 +1,7 @@
 module Hapy::Entities
   class GreenHouseOneEntity < Grape::Entity
     expose :id
+    expose :serial
     expose :name
     expose :soil
     expose :description

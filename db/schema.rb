@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20160614132141) do
 
   create_table "green_houses", force: :cascade do |t|
+    t.string   "serial"
     t.string   "name"
     t.string   "description"
     t.string   "soil"

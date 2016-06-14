@@ -28,6 +28,7 @@ u.email = 'dohant.aurelien@gmail.com'
 u.password = 'password'
 green_houses = (1..10).map do |index|
   green_house = GreenHouse.new
+  green_house.serial='55a0c891-3be7-4305-b89b-7a953d37b807'
   green_house.name = "green house #{index}"
   green_house.description = "green house desc. #{index}"
   plants = (1..3).map do |index|
