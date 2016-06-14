@@ -6,6 +6,5 @@ module Hapy::Entities
     expose :soil
     expose :temperature
     expose :humidity
-    expose :picture_url
   end
 end

@@ -5,5 +5,6 @@ module Hapy::Entities
     expose :name
     expose :soil
     expose :description
+    expose :picture_url
   end
 end
