@@ -47,6 +47,10 @@ module Hapy::API::V1::GreenHouses
         mount Hapy::API::V1::GreenHouses::GreenHousePlants
       end
 
+      resource :actions do
+        mount Hapy::API::V1::GreenHouses::GreenHousesActions
+      end
+
     end
 
   end

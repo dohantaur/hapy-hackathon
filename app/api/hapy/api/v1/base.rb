@@ -41,6 +41,7 @@ module Hapy::API::V1
     resource :plants do
       mount Hapy::API::V1::Plants::Base
     end
+
   end
 
 end
