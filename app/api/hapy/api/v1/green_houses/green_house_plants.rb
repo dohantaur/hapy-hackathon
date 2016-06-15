@@ -12,7 +12,7 @@ module Hapy::API::V1::GreenHouses
 
     params do
       requires :plant_template_id, type: Integer
-      requires :name, type: String
+      optional :name, type: String
       optional :description, type: String
       optional :picture_url, type: String
     end
