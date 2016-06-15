@@ -17,7 +17,10 @@ module Hapy::API::V1::GreenHouses
       end
 
       get do
-        green_house = GreenHouse.find_by!(id: declared(params).id)
+        green_house = GreenHouse.includes(:plants => :plant_template).find_by!(id: declared(params).id)
+        puts '~~~~~~~~~~~~'
+        puts green_house.actual_program
+        puts '~~~~~~~~~~~~'
         present :data, green_house, with: Hapy::Entities::GreenHouseOneEntity
       end
 

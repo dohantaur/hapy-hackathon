@@ -5,7 +5,7 @@ class GreenHouse < ActiveRecord::Base
   belongs_to :user
 
   has_many :plants
-  has_one :program
+  belongs_to :program, foreign_key: :actual_program
 
   def actual_data
     begin

@@ -6,5 +6,6 @@ module Hapy::Entities
     expose :light
     expose :created_at
     expose :updated_at
+    expose :green_house_id
   end
 end
