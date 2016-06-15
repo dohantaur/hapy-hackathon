@@ -14,7 +14,7 @@ module Hapy::API::V1::GreenHouses
       requires :humidity, type: Integer
       requires :temperature, type: Integer
       requires :light, type: Integer
-      optional :program_template_id, type: Integer
+      requires :program_template_id, type: Integer
     end
 
     post do

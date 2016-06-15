@@ -10,6 +10,10 @@
 program_templates = (1..5).map do |index|
   program_template = ProgramTemplate.new
   program_template.name = "program template. #{index}"
+  program_template.humidity=rand(80)
+  program_template.light=rand(1000)
+  program_template.moisture=rand(500)
+  program_template.temperature=rand(18)
   program_template.plant_type_templates << (1..3).map do |index|
     plant_type_template = PlantTypeTemplate.new
     plant_type_template.name = "plant type template. #{index}"
