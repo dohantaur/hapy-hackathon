@@ -16,6 +16,12 @@ module Hapy::API::V1::GreenHouses
         requires :id, type: Integer
       end
 
+      helpers do
+        def current_green_house
+          GreenHouse.find_by!(id: params[:id])
+        end
+      end
+
       get do
         green_house = GreenHouse.includes(:plants => :plant_template).find_by!(id: declared(params).id)
         puts '~~~~~~~~~~~~'

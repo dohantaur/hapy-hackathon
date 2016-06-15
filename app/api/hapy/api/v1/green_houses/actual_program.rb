@@ -7,7 +7,7 @@ module Hapy::API::V1::GreenHouses
 
 
     get do
-      present :data, Program.all, with: Hapy::Entities::ProgramEntity
+      present :data, current_green_house.program, with: Hapy::Entities::ProgramEntity
     end
 
     params do

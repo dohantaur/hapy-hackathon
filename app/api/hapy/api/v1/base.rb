@@ -46,6 +46,9 @@ module Hapy::API::V1
       mount Hapy::API::V1::Programs::Base
     end
 
+    resource :plant_templates do
+      mount Hapy::API::V1::PlantTemplates::Base
+    end
   end
 
 end

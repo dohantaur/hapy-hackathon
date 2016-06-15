@@ -7,7 +7,7 @@ module Hapy::API::V1::GreenHouses
 
 
     get do
-      present :data, Plant.all, with: Hapy::Entities::GreenHousePlantEntity
+      present :data, current_green_house.plants, with: Hapy::Entities::GreenHousePlantEntity
     end
 
     params do
