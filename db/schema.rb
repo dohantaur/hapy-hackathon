@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160614132141) do
     t.integer  "light"
     t.integer  "moisture"
     t.string   "description"
+    t.string   "picture_url"
     t.integer  "plant_type_template_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
