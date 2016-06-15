@@ -28,8 +28,8 @@ module Hapy::API::V1::GreenHouses
               temperature: pt.temperature,
               humidity: pt.humidity,
               light: pt.light,
-              description: pt.description,
-              picture_url: pt.picture_url
+              description: params[:description] || pt.description,
+              picture_url: params[:picture_url] || pt.picture_url
           })
     end
 
