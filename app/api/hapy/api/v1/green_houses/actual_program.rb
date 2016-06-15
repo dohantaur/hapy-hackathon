@@ -23,7 +23,7 @@ module Hapy::API::V1::GreenHouses
                         temperature: params[:temperature],
                         humidity: params[:humidity],
                         green_house: GreenHouse.find_by!(id: params[:id]),
-                        program_template: ProgramTemplate.find_by(id: params[:program_template_id])
+                        program_template: ProgramTemplate.find_by!(id: params[:program_template_id])
                     })
       program.save
       puts '!!!!!!!!'

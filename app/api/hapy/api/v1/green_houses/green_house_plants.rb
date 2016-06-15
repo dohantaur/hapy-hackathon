@@ -22,7 +22,7 @@ module Hapy::API::V1::GreenHouses
       pt = ::PlantTemplate.find_by!(id: params[:plant_template_id])
       Plant.create!({
               green_house: the_green_house,
-              name: pt.name,
+              name: params[:name] || pt.name,
               plantationDate: DateTime.now,
               plant_template: pt,
               temperature: pt.temperature,
