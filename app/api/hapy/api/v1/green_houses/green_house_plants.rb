@@ -12,23 +12,24 @@ module Hapy::API::V1::GreenHouses
 
     params do
       requires :plant_template_id, type: Integer
-      requires :name, type: String
+      optional :name, type: String
       optional :description, type: String
       optional :picture_url, type: String
     end
 
     post do
       the_green_house = GreenHouse.find_by!(id: params[:id])
+      pt = ::PlantTemplate.find_by!(id: params[:plant_template_id])
       Plant.create!({
               green_house: the_green_house,
-              name: params[:name],
+              name: params[:name] || pt.name,
               plantationDate: DateTime.now,
-              plant_template: PlantTemplate.find_by!(id: params[:plant_template_id]),
-              temperature: PlantTemplate.find_by!(id: params[:plant_template_id]).temperature,
-              humidity: PlantTemplate.find_by!(id: params[:plant_template_id]).humidity,
-              light: PlantTemplate.find_by!(id: params[:plant_template_id]).light,
-              description: params[:description],
-              picture_url: params[:picture_url]
+              plant_template: pt,
+              temperature: pt.temperature,
+              humidity: pt.humidity,
+              light: pt.light,
+              description: params[:description] || pt.description,
+              picture_url: params[:picture_url] || pt.picture_url
           })
     end
 

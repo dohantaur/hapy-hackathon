@@ -9,6 +9,7 @@ class CreatePlantTemplates < ActiveRecord::Migration
       t.integer :light
       t.integer :moisture
       t.string :description
+      t.string :picture_url
       t.references :plant_type_template
       t.timestamps null: false
     end

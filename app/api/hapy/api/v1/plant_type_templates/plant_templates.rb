@@ -1,5 +1,5 @@
 module Hapy::API::V1::GreenHouses
-  class PlantTemplate < Grape::API
+  class PlantTemplateEntity < Grape::API
 
     before do
       doorkeeper_authorize!
