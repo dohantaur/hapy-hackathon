@@ -8,6 +8,5 @@ module Hapy::Entities
     expose :green_house, using: Hapy::Entities::GreenHouseForProgramEntity
     expose :created_at
     expose :updated_at
-    expose :green_house_id
   end
 end

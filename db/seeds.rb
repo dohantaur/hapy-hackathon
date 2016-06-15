@@ -43,3 +43,14 @@ green_houses = (1..10).map do |index|
 end
 u.green_houses << green_houses
 u.save
+
+u.green_houses.each do |greenhouse|
+  program = Program.new(  humidity: rand(90),
+                          temperature: rand(30),
+                          light: rand(1000),
+                          moisture: rand(900),
+                          green_house_id: greenhouse.id)
+  program.save
+  greenhouse.actual_program = program.id
+  greenhouse.save
+end
