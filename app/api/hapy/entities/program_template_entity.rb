@@ -3,8 +3,9 @@ module Hapy::Entities
     expose :id
     expose :name
     expose :humidity
-    expose :temperature
     expose :light
+    expose :moisture
+    expose :temperature
     expose :description
   end
 end

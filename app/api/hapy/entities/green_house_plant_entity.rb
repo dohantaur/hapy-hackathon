@@ -4,7 +4,9 @@ module Hapy::Entities
     expose :name
     expose :plantationDate
     expose :soil
-    expose :temperature
     expose :humidity
+    expose :light
+    expose :moisture
+    expose :temperature
   end
 end

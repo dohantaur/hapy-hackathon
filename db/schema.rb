@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 20160614132141) do
     t.string   "soil"
     t.integer  "temperature"
     t.integer  "humidity"
+    t.integer  "light"
+    t.integer  "moisture"
     t.string   "description"
     t.integer  "plant_type_template_id"
     t.datetime "created_at",             null: false
@@ -93,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160614132141) do
     t.datetime "plantationDate"
     t.integer  "temperature"
     t.integer  "humidity"
+    t.integer  "light"
+    t.integer  "moisture"
     t.string   "description"
     t.string   "picture_url"
     t.integer  "green_house_id"
@@ -108,6 +112,7 @@ ActiveRecord::Schema.define(version: 20160614132141) do
     t.integer  "humidity"
     t.integer  "temperature"
     t.integer  "light"
+    t.integer  "moisture"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -117,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160614132141) do
     t.integer  "temperature"
     t.integer  "humidity"
     t.integer  "light"
+    t.integer  "moisture"
     t.integer  "program_template_id"
     t.integer  "green_house_id"
     t.datetime "created_at",          null: false

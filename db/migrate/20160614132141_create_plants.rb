@@ -5,6 +5,8 @@ class CreatePlants < ActiveRecord::Migration
       t.datetime :plantationDate
       t.integer :temperature
       t.integer :humidity
+      t.integer :light
+      t.integer :moisture
       t.string :description
       t.string :picture_url
       t.references :green_house, foreign_key: true, index: true

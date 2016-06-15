@@ -2,8 +2,10 @@ module Hapy::Entities
   class ProgramEntity < Grape::Entity
     expose :id
     expose :humidity
-    expose :temperature
     expose :light
+    expose :moisture
+    expose :temperature
+    expose :green_house, using: Hapy::Entities::GreenHouseForProgramEntity
     expose :created_at
     expose :updated_at
   end

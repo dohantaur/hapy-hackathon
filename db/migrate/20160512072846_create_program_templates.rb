@@ -6,6 +6,7 @@ class CreateProgramTemplates < ActiveRecord::Migration
       t.integer :humidity
       t.integer :temperature
       t.integer :light
+      t.integer :moisture
       t.string :description
       t.timestamps null: false
     end

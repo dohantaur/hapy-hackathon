@@ -26,6 +26,7 @@ module Hapy::API::V1::GreenHouses
               plant_template: PlantTemplate.find_by!(id: params[:plant_template_id]),
               temperature: PlantTemplate.find_by!(id: params[:plant_template_id]).temperature,
               humidity: PlantTemplate.find_by!(id: params[:plant_template_id]).humidity,
+              light: PlantTemplate.find_by!(id: params[:plant_template_id]).light,
               description: params[:description],
               picture_url: params[:picture_url]
           })

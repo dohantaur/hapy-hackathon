@@ -6,6 +6,8 @@ class CreatePlantTemplates < ActiveRecord::Migration
       t.string :soil
       t.integer :temperature
       t.integer :humidity
+      t.integer :light
+      t.integer :moisture
       t.string :description
       t.references :plant_type_template
       t.timestamps null: false
